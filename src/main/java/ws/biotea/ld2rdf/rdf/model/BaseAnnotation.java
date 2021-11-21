@@ -19,4 +19,5 @@ public class BaseAnnotation implements Serializable {
     public final static String DC_IS_REFERENCED_BY = OntologyPrefix.DCTERMS.getURL() + "isReferencedBy";
     public final static String SIO_IN_DATASET = OntologyPrefix.SIO.getURL() + "SIO_001278"; 
     public final static String DP_SCORE = OntologyPrefix.BIOTEA.getURL() + "score"; 
+    public final static String DC_SOURCE = OntologyPrefix.DCTERMS.getURL() + "source";
 }

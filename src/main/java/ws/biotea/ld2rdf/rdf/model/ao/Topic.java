@@ -15,7 +15,8 @@ public class Topic implements Serializable {
 	private URI url;
 	private List<URI> seeAlso = new ArrayList<URI>();
 	private List<String> umlsType = new ArrayList<String>();
-	private String comment;	
+	private String comment;
+	private String sourceOntology;
 	/**
 	 * Returns the nameSpace.
 	 * @return the nameSpace
@@ -72,6 +73,12 @@ public class Topic implements Serializable {
 	 */
 	public List<String> getUmlsType() {
 		return umlsType;
+	}
+	public String getSourceOntology() {
+		return sourceOntology;
+	}
+	public void setSourceOntology(String sourceOntology) {
+		this.sourceOntology = sourceOntology;
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

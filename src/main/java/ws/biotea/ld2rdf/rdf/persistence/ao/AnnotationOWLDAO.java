@@ -154,6 +154,7 @@ public class AnnotationOWLDAO extends AnnotationDAO {
 		Property dpCUI = model.getProperty(AnnotationClassesAndProperties.UMLS_CUI.getURLValue());
 		Property dpTUI = model.getProperty(AnnotationClassesAndProperties.UMLS_TUI.getURLValue());
 		Property dpScore = model.getProperty(BaseAnnotation.DP_SCORE);
+		Property dcSource = model.getProperty(BaseAnnotation.DC_SOURCE);
 		
 		baseURL += annotation.getDocumentID();
 		
@@ -238,6 +239,9 @@ public class AnnotationOWLDAO extends AnnotationDAO {
 		for (ws.biotea.ld2rdf.rdf.model.ao.Topic topic:annotation.getTopics()) {
 			Resource resTopic = model.createResource(topic.getURL().toString());
 			annotationRes.addProperty(opHasTopic, resTopic);
+			if (topic.getSourceOntology() != null && !topic.getSourceOntology().trim().isEmpty()){
+				resTopic.addProperty(dcSource, topic.getSourceOntology());
+			}
 			if (ResourceConfig.withBio()) {
 				String strIdentifier = AnnotationOntologyPrefix.toIdentifiersOrg(topic.getNameSpace().toString());
 				if (strIdentifier != null) {
